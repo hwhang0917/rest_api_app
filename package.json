@@ -1,0 +1,21 @@
+{
+  "name": "rest_api_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hwhang0917/rest_api_app.git",
+  "author": "Mark Whang <hwhang0917@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "dev:server": "nodemon --exec babel-node src/init"
+  }
+}
