@@ -5,10 +5,12 @@ const ReportSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project"
   },
-  contributors: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Consultant"
-  },
+  contributors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Person"
+    },
+  ],
   title: {
     type: String,
     required: "Title (보고서 제목) is required",

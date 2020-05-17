@@ -10,8 +10,20 @@ const ProjectSchema = new mongoose.Schema({
     type: String,
     required: "Title (제목) is required",
   },
+  contributors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Person",
+    },
+  ],
+  reportList: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Report",
+    },
+  ],
   startDate: {
-    type: Date, 
+    type: Date,
     default: Date.now,
     required: "Start date (프로젝트 시작 날짜) is required",
   },
