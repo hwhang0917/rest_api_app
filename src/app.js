@@ -9,6 +9,10 @@ import mongoose from "mongoose";
 import session from "express-session";
 import passport from "passport";
 
+import routes from "./routes";
+import globalRouter from "./router/globalRouter";
+import apiRouter from "./router/apiRouter";
+
 const app = express();
 
 const CookieStore = MongoStore(session);
@@ -35,8 +39,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", function (req, res) {
-  res.render("landing");
-});
+app.use(routes.root, globalRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
