@@ -8,6 +8,10 @@ globalRouter.get(routes.root, (req, res) => {
   res.render("landing");
 });
 
+globalRouter.get(routes.api, (req, res) => {
+  res.render("api");
+});
+
 globalRouter.get(routes.admin, (req, res) => {
   res.render("admin");
 });

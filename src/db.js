@@ -3,11 +3,16 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  process.env.PRODUCTION
+    ? process.env.MONGODB_URI
+    : process.env.MONGO_LOCAL_URI,
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  }
+);
 
 const db = mongoose.connection;
 

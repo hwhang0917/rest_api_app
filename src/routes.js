@@ -21,7 +21,7 @@ const routes = {
   root: ROOT,
   admin: ADMIN,
   api: API,
-  details: (id) => {
+  detail: (id) => {
     if (id) {
       return `/${id}`;
     } else {

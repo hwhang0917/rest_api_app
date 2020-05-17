@@ -12,6 +12,7 @@ import passport from "passport";
 import routes from "./routes";
 import globalRouter from "./router/globalRouter";
 import apiRouter from "./router/apiRouter";
+import { localsMiddleware } from "./middleware";
 
 const app = express();
 
@@ -38,6 +39,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Custom Middlewares
+app.use(localsMiddleware);
 
 app.use(routes.root, globalRouter);
 app.use(routes.api, apiRouter);
