@@ -97,6 +97,71 @@ personRouter.get(routes.detail(), async (req, res) => {
 });
 
 // UPDATE
+// Update name
+personRouter.put(`${routes.detail()}/name`, async (req, res) => {
+  const {
+    params: { id },
+    body: { name },
+  } = req;
+  try {
+    await Person.findOneAndUpdate({ _id: id }, { name });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
+
+// Update position
+personRouter.put(`${routes.detail()}/position`, async (req, res) => {
+  const {
+    params: { id },
+    body: { position },
+  } = req;
+  try {
+    await Person.findOneAndUpdate({ _id: id }, { position });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
+
+// Update contact
+personRouter.put(`${routes.detail()}/contact`, async (req, res) => {
+  const {
+    params: { id },
+    body: { contact },
+  } = req;
+  try {
+    await Person.findOneAndUpdate({ _id: id }, { contact });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Update username
+personRouter.put(`${routes.detail()}/username`, async (req, res) => {
+  const {
+    params: { id },
+    body: { username },
+  } = req;
+  try {
+    await Person.findOneAndUpdate({ _id: id }, { username });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Flip admin
 
 // DELETE
 personRouter.delete(routes.detail(), async (req, res) => {
