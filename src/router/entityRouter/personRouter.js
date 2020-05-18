@@ -78,6 +78,7 @@ personRouter.post(routes.root, async (req, res) => {
 // READ
 personRouter.get(routes.list, async (req, res) => {
   const personList = await Person.find({});
+  res.status(200);
   res.json({ person: personList });
 });
 
@@ -87,6 +88,7 @@ personRouter.get(routes.detail(), async (req, res) => {
   } = req;
   try {
     const person = await Person.findById(id);
+    res.status(200);
     res.json(person);
   } catch (error) {
     res.status(404);
@@ -104,12 +106,10 @@ personRouter.delete(routes.detail(), async (req, res) => {
   try {
     await Person.findOneAndDelete(id);
     res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully deleted"));
   } catch (error) {
     res.status(404);
     res.json(ErrorJSON(404, "The resource you requested could not be found."));
-  } finally {
-    res.status(200);
-    res.json(SuccessJSON(200, "Resourece successfully deleted"));
   }
 });
 
