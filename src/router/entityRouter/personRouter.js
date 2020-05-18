@@ -4,20 +4,20 @@ import Person from "../../models/Person";
 import Employee from "../../models/Employee";
 import Expert from "../../models/Expert";
 import routes from "../../routes";
-import { ErrorJSON, SuccessJSON } from "../../middleware";
+import { ErrorJSON, SuccessJSON, checkAdmin, usernameExists } from "../../middleware";
 
 // Express router
 const personRouter = express.Router();
 
-const createAPIKey = (admin) => {
-  if (admin) {
+const createAPIKey = (username) => {
+  if (username) {
     return CryptoJS.SHA256(Date.now().toString()).toString();
   } else {
     return null;
   }
 };
 // CREATE
-personRouter.post(routes.root, async (req, res) => {
+personRouter.post(routes.root, checkAdmin, usernameExists, async (req, res) => {
   const {
     body: {
       name,
@@ -31,7 +31,7 @@ personRouter.post(routes.root, async (req, res) => {
     },
   } = req;
   let newPerson;
-  let apiKey = createAPIKey(admin);
+  let apiKey = createAPIKey(username);
   try {
     if (employee) {
       newPerson = await Employee.create({
@@ -143,6 +143,8 @@ personRouter.put(`${routes.detail()}/contact`, async (req, res) => {
     res.json(SuccessJSON(200, "Resourece successfully updated"));
   } catch (error) {
     console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
   }
 });
 
@@ -158,10 +160,27 @@ personRouter.put(`${routes.detail()}/username`, async (req, res) => {
     res.json(SuccessJSON(200, "Resourece successfully updated"));
   } catch (error) {
     console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
   }
 });
 
-// Flip admin
+// Toggle admin
+personRouter.put(`${routes.detail()}/admin`, checkAdmin, async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    // Bitwise flip / toggle
+    await Person.findOneAndUpdate({ _id: id }, { $bit: { admin: { xor: 1 } } });
+    res.status(200);
+    res.json(SuccessJSON(200, "Toggled admin switch."));
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
 
 // DELETE
 personRouter.delete(routes.detail(), async (req, res) => {

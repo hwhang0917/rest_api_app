@@ -46,3 +46,42 @@ export const validateAPIKey = async (req, res, next) => {
     console.log(error);
   }
 };
+
+export const checkAdmin = async (req, res, next) => {
+  const {
+    query: { api_key },
+  } = req;
+  try {
+    const user = await Person.findOne({ apiKey: api_key });
+    if (user.admin) {
+      next();
+    } else {
+      res.status(403);
+      res.json(
+        ErrorJSON(403, "Forbidden, only admins can access this resource.")
+      );
+    }
+  } catch (error) {
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+};
+
+export const usernameExists = async (req, res, next) => {
+  const {
+    body: { username },
+  } = req;
+  try {
+    const user = await Person.findOne({ username });
+    if (user) {
+      res.status(409);
+      res.json(ErrorJSON(409, "Conflict, username already exists."));
+    } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+};

@@ -43,3 +43,20 @@ In order to run the project:
 | /api/client       | Client (C/D)            | -         |
 | /api/project      | Project (C/D)           | -         |
 | /api/report       | Report (C/D)            | -         |
+
+## API Calls
+
+| METHOD | ADDRESS           | BODY |
+| ------ | ----------------- | ---- |
+| GET    | /api/person/list  |      |
+|        | /api/project/list |      |
+|        | /api/client/list  |      |
+|        | /api/report/list  |      |
+|        |                   |      |
+|        |                   |      |
+|        |                   |      |
+|        |                   |      |
+|        |                   |      |
+|        |                   |      |
+|        |                   |      |
+
