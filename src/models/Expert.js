@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Person from "./Person";
 
-const ExpertSchema = Person.discriminator(
+const model = Person.discriminator(
   "Expert",
   new mongoose.Schema({
     expertese: {
@@ -11,5 +11,5 @@ const ExpertSchema = Person.discriminator(
   })
 );
 
-const model = mongoose.model("Expert", ExpertSchema);
+// const model = mongoose.model("Expert", ExpertSchema);
 export default model;

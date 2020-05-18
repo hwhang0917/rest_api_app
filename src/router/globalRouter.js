@@ -1,4 +1,5 @@
 import express from "express";
+import Employee from "../models/Employee";
 import routes from "../routes";
 
 // Express router
@@ -14,6 +15,20 @@ globalRouter.get(routes.api, (req, res) => {
 
 globalRouter.get(routes.admin, (req, res) => {
   res.render("admin");
+});
+
+// Create Test Admin User
+globalRouter.post("/create_test", (req, res) => {
+  Employee.create({
+    name: "John Doe",
+    position: "admin",
+    contact: "johndoe@admin.com",
+    employee: true,
+    username: "admin",
+    admin: true,
+    apiKey: "test1234",
+  });
+  res.send("success");
 });
 
 export default globalRouter;

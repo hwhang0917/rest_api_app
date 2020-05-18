@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Person from "./Person";
 
-const EmployeeSchema = Person.discriminator(
+const model = Person.discriminator(
   "Employee",
   new mongoose.Schema({
     startDate: {
@@ -12,5 +12,5 @@ const EmployeeSchema = Person.discriminator(
   })
 );
 
-const model = mongoose.model("Employee", EmployeeSchema);
+// const model = mongoose.model("Employee", EmployeeSchema);
 export default model;

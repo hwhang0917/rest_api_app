@@ -1,6 +1,14 @@
 import Person from "./models/Person";
 import routes from "./routes";
 
+export const SuccessJSON = (code, msg) => {
+  return {
+    status_code: code,
+    status_message: msg,
+    success: true,
+  };
+};
+
 export const ErrorJSON = (code, msg) => {
   return {
     status_code: code,
