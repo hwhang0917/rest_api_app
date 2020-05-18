@@ -1,4 +1,5 @@
 import Person from "./models/Person";
+import Client from "./models/Client";
 import routes from "./routes";
 
 export const SuccessJSON = (code, msg) => {
@@ -77,6 +78,22 @@ export const usernameExists = async (req, res, next) => {
       res.status(409);
       res.json(ErrorJSON(409, "Conflict, username already exists."));
     } else {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+};
+
+export const clientExists = async (req, res, next) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const client = await Client.findOne({ _id: id });
+    if (client) {
       next();
     }
   } catch (error) {

@@ -4,14 +4,19 @@ import Person from "../../models/Person";
 import Employee from "../../models/Employee";
 import Expert from "../../models/Expert";
 import routes from "../../routes";
-import { ErrorJSON, SuccessJSON, checkAdmin, usernameExists } from "../../middleware";
+import {
+  ErrorJSON,
+  SuccessJSON,
+  checkAdmin,
+  usernameExists,
+} from "../../middleware";
 
 // Express router
 const personRouter = express.Router();
 
 const createAPIKey = (username) => {
   if (username) {
-    return CryptoJS.SHA256(Date.now().toString()).toString();
+    return CryptoJS.SHA256(username).toString();
   } else {
     return null;
   }

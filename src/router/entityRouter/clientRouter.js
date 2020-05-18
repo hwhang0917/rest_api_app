@@ -13,14 +13,14 @@ clientRouter.post(routes.root, async (req, res) => {
   } = req;
   let newClient;
   try {
-    newClient = await new Client.create({
+    newClient = await Client.create({
       name,
       contact,
     });
   } catch (error) {
     console.log(error);
-    res.status(409);
-    res.json(ErrorJSON(409, "Conflict! Resource already exists."));
+    res.status(400);
+    res.json(ErrorJSON(400, "Failed to create client."));
   }
   console.log("✔ Client Created");
   console.log(newClient);
@@ -29,6 +29,25 @@ clientRouter.post(routes.root, async (req, res) => {
 });
 
 // READ
+clientRouter.get(routes.list, async (req, res) => {
+  const clientList = await Client.find({});
+  res.status(200);
+  res.json({ person: clientList });
+});
+
+clientRouter.get(routes.detail(), async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const client = await Client.findById(id);
+    res.status(200);
+    res.json(client);
+  } catch (error) {
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
 
 // UPDATE
 

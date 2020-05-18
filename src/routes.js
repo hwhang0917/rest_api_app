@@ -9,6 +9,9 @@ const API = "/api";
 const DETAIL = "/:id";
 const LIST = "/list";
 
+// CREATE
+const CREATE = "/create/:id";
+
 // Entities
 const PERSON = "/person";
 const CLIENT = "/client";
@@ -29,6 +32,13 @@ const routes = {
     }
   },
   list: LIST,
+  create: (id) => {
+    if (id) {
+      return `/create/${id}`;
+    } else {
+      return CREATE;
+    }
+  },
   person: PERSON,
   client: CLIENT,
   employee: EMPLOYEE,
