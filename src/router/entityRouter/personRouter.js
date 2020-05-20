@@ -84,7 +84,7 @@ personRouter.post(routes.root, checkAdmin, usernameExists, async (req, res) => {
 personRouter.get(routes.list, async (req, res) => {
   const personList = await Person.find({});
   res.status(200);
-  res.json({ person: personList });
+  res.json({ people: personList, personCount: personList.length });
 });
 
 personRouter.get(routes.detail(), async (req, res) => {
