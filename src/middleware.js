@@ -92,8 +92,24 @@ export const clientExists = async (req, res, next) => {
     params: { id },
   } = req;
   try {
-    const client = await Client.findOne({ _id: id });
+    const client = await Client.findById({ _id: id });
     if (client) {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+};
+
+export const personExists = async (req, res, next) => {
+  const {
+    query: { contributor_id: id },
+  } = req;
+  try {
+    const person = await Person.findById({ _id: id });
+    if (person) {
       next();
     }
   } catch (error) {

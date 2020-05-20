@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const ReportSchema = new mongoose.Schema({
   projectId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Project"
+    ref: "Project",
   },
   contributors: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Person"
+      ref: "Person",
     },
   ],
   title: {
@@ -25,5 +25,5 @@ const ReportSchema = new mongoose.Schema({
   },
 });
 
-const model = mongoose.model("Report", ReportSchema),
+const model = mongoose.model("Report", ReportSchema);
 export default model;
