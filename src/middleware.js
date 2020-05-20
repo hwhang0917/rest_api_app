@@ -1,5 +1,6 @@
 import Person from "./models/Person";
 import Client from "./models/Client";
+import Project from "./models/Project";
 import routes from "./routes";
 
 export const SuccessJSON = (code, msg) => {
@@ -110,6 +111,22 @@ export const personExists = async (req, res, next) => {
   try {
     const person = await Person.findById({ _id: id });
     if (person) {
+      next();
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+};
+
+export const projectExists = async (req, res, next) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const project = await Project.findById({ _id: id });
+    if (project) {
       next();
     }
   } catch (error) {
