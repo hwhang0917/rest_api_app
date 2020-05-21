@@ -17,6 +17,13 @@ globalRouter.get(routes.admin, (req, res) => {
   res.render("admin");
 });
 
+// Login
+globalRouter.post(routes.login, (req, res) => {});
+
+globalRouter.get(routes.signup, (req, res) => {
+  res.render("signup");
+});
+
 // Create Test Admin User
 globalRouter.post("/create_test", (req, res) => {
   Employee.create({

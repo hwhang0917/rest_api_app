@@ -100,7 +100,7 @@ reportRouter.get(routes.list, async (req, res) => {
 });
 
 // Read report by id (/api/report/:id)
-projectRouter.get(routes.detail(), async (req, res) => {
+reportRouter.get(routes.detail(), async (req, res) => {
   const {
     params: { id },
   } = req;

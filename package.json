@@ -23,10 +23,29 @@
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
-    "nodemon": "^2.0.3"
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulplog": "^1.0.0",
+    "nodemon": "^2.0.3",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/init",
-    "test:db": "nodemon --exec babel-node src/db"
+    "dev:server": "nodemon --exec babel-node src/init --delay 2 --ignore 'assets/*' --ignore 'static/*'",
+    "dev:assets": "gulp",
+    "build:assets": "gulp build",
+    "build:server": "babel src --out-dir build --ignore 'src/static'",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
+    "build": "yarn build:server && yarn build:assets && yarn copyAll",
+    "prebuild": "rm -rf build",
+    "start": "node build/server.js",
+    "prestart": "yarn build"
   }
 }

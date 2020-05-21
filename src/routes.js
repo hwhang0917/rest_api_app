@@ -1,6 +1,8 @@
 // Global Routes
 const ROOT = "/";
 const ADMIN = "/admin";
+const LOGIN = "/login";
+const SIGNUP = "/signup";
 
 // API
 const API = "/api";
@@ -24,6 +26,8 @@ const routes = {
   root: ROOT,
   admin: ADMIN,
   api: API,
+  login: LOGIN,
+  signup: SIGNUP,
   detail: (id) => {
     if (id) {
       return `/${id}`;
