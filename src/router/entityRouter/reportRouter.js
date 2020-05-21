@@ -5,4 +5,12 @@ import { ErrorJSON, SuccessJSON } from "../../middleware";
 
 const reportRouter = express.Router();
 
+// CREATE
+
+// READ
+
+// UPDATE
+
+// DELETE
+
 export default reportRouter;

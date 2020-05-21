@@ -1,4 +1,5 @@
 import express from "express";
+import Client from "../../models/Client";
 import Project from "../../models/Project";
 import routes from "../../routes";
 import {
@@ -29,6 +30,12 @@ projectRouter.post(routes.create(), clientExists, async (req, res) => {
     res.status(400);
     res.json(ErrorJSON(400, "Failed to create project."));
   }
+
+  const client = await Client.findById(requestedClient);
+  client.requestedProjects.push(newProject._id);
+  client.save();
+  console.log("✔ Project added client's requetesd project array");
+
   console.log("✔ Project Created");
   console.log(newProject);
   res.status(200);
@@ -44,7 +51,6 @@ projectRouter.post(
       params: { id: project_id },
       query: { contributor_id: person_id },
     } = req;
-    console.log(project_id, person_id)
     try {
       const project = await Project.findById({ _id: project_id });
       if (project.contributors.includes(person_id)) {
@@ -196,7 +202,7 @@ projectRouter.delete(
         project.contributors.splice(
           // Remove contributor_id from contributors array
           project.contributors.findIndex((contributor) => {
-            contributor == person_id;
+            contributor === person_id;
           }),
           1
         );
