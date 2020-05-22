@@ -51,13 +51,13 @@ clientRouter.get(routes.detail(), async (req, res) => {
 
 // UPDATE
 // Update name
-clientRouter.put(`${routes.detail()}/contact`, async (req, res) => {
+clientRouter.put(`${routes.detail()}/name`, async (req, res) => {
   const {
     params: { id },
-    body: { contact },
+    body: { name },
   } = req;
   try {
-    await Client.findOneAndUpdate({ _id: id }, { contact });
+    await Client.findOneAndUpdate({ _id: id }, { name });
     res.status(200);
     res.json(SuccessJSON(200, "Resourece successfully updated"));
   } catch (error) {
