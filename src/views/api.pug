@@ -3,3 +3,10 @@ extends layouts/main
 block content
     main.main
         h1 API page
+        if loggedUser.admin
+            a(href=routes.admin) 어드민 페이지
+        .api-box
+            input(type="password", value=apiKey, readonly)#api_key
+            button
+                i.far.fa-copy
+        a(href=routes.logout) 로그아웃

@@ -1,0 +1,8 @@
+header.header
+    h1
+        if loggedUser
+            a(href=routes.api) 
+                i.fas.fa-home
+        else
+            a(href=routes.root) 
+                i.fas.fa-home

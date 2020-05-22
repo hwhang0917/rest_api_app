@@ -27,6 +27,32 @@ export const localsMiddleware = (req, res, next) => {
   next();
 };
 
+export const onlyAdmin = (req, res, next) => {
+  if (req.user.admin === 1) {
+    next();
+  } else if (req.user.admin === 0) {
+    res.redirect(routes.api);
+  } else {
+    res.redirect(routes.root);
+  }
+};
+
+export const onlyPublic = (req, res, next) => {
+  if (req.user) {
+    res.redirect(routes.api);
+  } else {
+    next();
+  }
+};
+
+export const onlyPrivate = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect(routes.root);
+  }
+};
+
 export const validateAPIKey = async (req, res, next) => {
   const {
     query: { api_key },

@@ -2,6 +2,7 @@
 const ROOT = "/";
 const ADMIN = "/admin";
 const LOGIN = "/login";
+const LOGOUT = "/logout";
 const SIGNUP = "/signup";
 
 // API
@@ -27,6 +28,7 @@ const routes = {
   admin: ADMIN,
   api: API,
   login: LOGIN,
+  logout: LOGOUT,
   signup: SIGNUP,
   detail: (id) => {
     if (id) {

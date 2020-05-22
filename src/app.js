@@ -13,6 +13,7 @@ import routes from "./routes";
 import globalRouter from "./router/globalRouter";
 import apiRouter from "./router/apiRouter";
 import { localsMiddleware } from "./middleware";
+import "./passport";
 
 const app = express();
 
