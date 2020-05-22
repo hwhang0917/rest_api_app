@@ -83,3 +83,8 @@ In order to run the project:
 |            | /api/client/:id                                     | id: client_id       |                                              |                | Deletes Client entity                                             |
 |            | /api/report/:id                                     | id: report_id       |                                              |                | Deletes Report entity                                             |
 |            | /api/report/:id/remove_contributor                  | id: report_id       |                                              | contributor_id | Deletes contributor from Report                                   |
+
+## TODO LIST (05/22/2020~)
+
+- [ ] Add copy API key feature
+- [ ] Add admin page to control all entities
