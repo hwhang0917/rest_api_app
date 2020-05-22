@@ -14,7 +14,10 @@ globalRouter.get(routes.root, onlyPublic, (req, res) => {
 });
 
 globalRouter.get(routes.api, onlyPrivate, (req, res) => {
-  res.render("api");
+  const {
+    user: { apiKey },
+  } = req;
+  res.render("api", { apiKey });
 });
 
 globalRouter.get(routes.admin, onlyAdmin, (req, res) => {

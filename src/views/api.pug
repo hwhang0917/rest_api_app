@@ -2,11 +2,22 @@ extends layouts/main
 
 block content
     main.main
-        h1 API page
+        h1 #{loggedUser.name}님 환영합니다! 
         if loggedUser.admin
             a(href=routes.admin) 어드민 페이지
         .api-box
-            input(type="password", value=apiKey, readonly)#api_key
-            button
+            h3 나의 API 키
+            input(type="password", value=apiKey, readonly)#api-key
+            button#view-api-button
+                i.far.fa-eye
+            button#copy-api-button
                 i.far.fa-copy
         a(href=routes.logout) 로그아웃
+    script.
+        const viewBtn = document.getElementById("view-api-button");
+        const apiIpt = document.getElementById("api-key");
+
+        viewBtn.addEventListener("click", () => { // Show API key for 3 seconds
+            apiIpt.type = "text";
+            setTimeout(() => apiIpt.type = "password", 3000);
+        });
