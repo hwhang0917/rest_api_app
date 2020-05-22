@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import passportLocalMongoose from "passport-local-mongoose";
 
 const options = { discriminatorKey: "kind" };
 
@@ -38,6 +39,8 @@ const PersonSchema = new mongoose.Schema(
   },
   options
 );
+
+PersonSchema.plugin(passportLocalMongoose, { usernameField: "username" });
 
 const model = mongoose.model("Person", PersonSchema);
 export default model;

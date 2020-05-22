@@ -14,7 +14,7 @@ import {
 // Express router
 const personRouter = express.Router();
 
-const createAPIKey = (username) => {
+export const createAPIKey = (username) => {
   if (username) {
     return CryptoJS.SHA256(username).toString();
   } else {
