@@ -22,6 +22,11 @@ In order to run the project:
    yarn dev:server
    ```
 
+## References
+
+- [REST API Tutorial](https://www.restapitutorial.com/)
+- [Nomad Coders](https://academy.nomadcoders.co/)
+
 ## ER Diagram
 
 ![](./ER.png)
