@@ -24,16 +24,7 @@ export const createAPIKey = (username) => {
 // CREATE
 personRouter.post(routes.root, checkAdmin, usernameExists, async (req, res) => {
   const {
-    body: {
-      name,
-      position,
-      contact,
-      employee,
-      username,
-      admin,
-      expertese,
-      startDate,
-    },
+    body: { name, position, contact, employee, username, expertese, startDate },
   } = req;
   let newPerson;
   let apiKey = createAPIKey(username);
@@ -45,7 +36,6 @@ personRouter.post(routes.root, checkAdmin, usernameExists, async (req, res) => {
         contact,
         employee,
         username,
-        admin,
         startDate,
         apiKey,
       });
@@ -64,7 +54,6 @@ personRouter.post(routes.root, checkAdmin, usernameExists, async (req, res) => {
         contact,
         employee: false,
         username,
-        admin,
         apiKey,
       });
     }

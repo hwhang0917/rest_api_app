@@ -50,7 +50,53 @@ clientRouter.get(routes.detail(), async (req, res) => {
 });
 
 // UPDATE
+// Update name
+clientRouter.put(`${routes.detail()}/contact`, async (req, res) => {
+  const {
+    params: { id },
+    body: { contact },
+  } = req;
+  try {
+    await Client.findOneAndUpdate({ _id: id }, { contact });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
+
+// Update contact
+clientRouter.put(`${routes.detail()}/contact`, async (req, res) => {
+  const {
+    params: { id },
+    body: { contact },
+  } = req;
+  try {
+    await Client.findOneAndUpdate({ _id: id }, { contact });
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully updated"));
+  } catch (error) {
+    console.log(error);
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
 
 // DELETE
+clientRouter.delete(routes.detail(), async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Client.findOneAndDelete(id);
+    res.status(200);
+    res.json(SuccessJSON(200, "Resourece successfully deleted"));
+  } catch (error) {
+    res.status(404);
+    res.json(ErrorJSON(404, "The resource you requested could not be found."));
+  }
+});
 
 export default clientRouter;
