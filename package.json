@@ -24,7 +24,9 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
+    "@babel/runtime": "^7.9.6",
     "babelify": "^10.0.0",
     "browserify": "^16.5.0",
     "del": "^5.1.0",
@@ -47,7 +49,7 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "yarn build:server && yarn build:assets && yarn copyAll",
     "prebuild": "rm -rf build",
-    "start": "node build/server.js",
+    "start": "node build/init.js",
     "prestart": "yarn build"
   }
 }

@@ -88,3 +88,4 @@ In order to run the project:
 
 - [ ] Add copy API key feature
 - [ ] Add admin page to control all entities
+- [ ] Fix Babel regeneratorRuntime error when running build script

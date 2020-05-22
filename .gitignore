@@ -105,3 +105,6 @@ dist
 
 # DB planning
 *.ndml
+
+# Ignore build folder
+build
