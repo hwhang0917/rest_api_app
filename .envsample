@@ -1,0 +1,3 @@
+COOKIE_SECRET = "Add secret key"
+MONGO_LOCAL_URI = "Add MongoDB Local URI"
+MONGODB_URI = "Add MongoDB URI"
