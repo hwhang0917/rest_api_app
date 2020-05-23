@@ -105,8 +105,11 @@ globalRouter.post(routes.signup, async (req, res) => {
 });
 
 // Create Test Admin User
-globalRouter.post("/create_test", (req, res) => {
-  Person.create({
+globalRouter.post("/create_test", async (req, res) => {
+  const {
+    body: { password },
+  } = req;
+  const initAdmin = await Person({
     name: "Heesang Whang",
     position: "admin",
     contact: "hwhang0917@gmail.com",
@@ -115,6 +118,7 @@ globalRouter.post("/create_test", (req, res) => {
     admin: true,
     apiKey: "test1234",
   });
+  await Person.register(initAdmin, password);
   res.send("success");
 });
 

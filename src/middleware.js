@@ -27,6 +27,7 @@ export const localsMiddleware = (req, res, next) => {
   next();
 };
 
+// Allow only admin
 export const onlyAdmin = (req, res, next) => {
   if (req.user.admin === 1) {
     next();
@@ -37,6 +38,7 @@ export const onlyAdmin = (req, res, next) => {
   }
 };
 
+// Allow for not logged in users
 export const onlyPublic = (req, res, next) => {
   if (req.user) {
     res.redirect(routes.api);
@@ -45,6 +47,7 @@ export const onlyPublic = (req, res, next) => {
   }
 };
 
+// Allow for logged in users
 export const onlyPrivate = (req, res, next) => {
   if (req.user) {
     next();
@@ -53,6 +56,7 @@ export const onlyPrivate = (req, res, next) => {
   }
 };
 
+// Validate API Key
 export const validateAPIKey = async (req, res, next) => {
   const {
     query: { api_key },
@@ -75,6 +79,7 @@ export const validateAPIKey = async (req, res, next) => {
   }
 };
 
+// Check if api_key passed is admin
 export const checkAdmin = async (req, res, next) => {
   const {
     query: { api_key },
@@ -95,6 +100,7 @@ export const checkAdmin = async (req, res, next) => {
   }
 };
 
+// Check if username exists
 export const usernameExists = async (req, res, next) => {
   const {
     body: { username },
@@ -114,6 +120,7 @@ export const usernameExists = async (req, res, next) => {
   }
 };
 
+// Check if client exists
 export const clientExists = async (req, res, next) => {
   const {
     params: { id },
@@ -130,6 +137,7 @@ export const clientExists = async (req, res, next) => {
   }
 };
 
+// Check if person exists
 export const personExists = async (req, res, next) => {
   const {
     query: { contributor_id: id },
@@ -146,6 +154,7 @@ export const personExists = async (req, res, next) => {
   }
 };
 
+// Check if project exists
 export const projectExists = async (req, res, next) => {
   const {
     params: { id },

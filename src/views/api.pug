@@ -2,7 +2,7 @@ extends layouts/main
 
 block content
     main.main
-        h1 #{loggedUser.name}님 환영합니다! 
+        h1#welcome-msg  #{loggedUser.name}님 환영합니다!
         if loggedUser.admin
             a(href=routes.admin) 어드민 페이지
         .api-box
@@ -15,9 +15,26 @@ block content
         a(href=routes.logout) 로그아웃
     script.
         const viewBtn = document.getElementById("view-api-button");
+        const copyBtn = document.getElementById("copy-api-button");
         const apiIpt = document.getElementById("api-key");
 
-        viewBtn.addEventListener("click", () => { // Show API key for 3 seconds
+        const showAPIforThreeSec = () => {// Show API key for 3 seconds
             apiIpt.type = "text";
             setTimeout(() => apiIpt.type = "password", 3000);
-        });
+        }
+
+        const copyAPIKeytoClipboard = (event) => {
+            apiIpt.type = "text";
+            apiIpt.focus();
+            apiIpt.select();
+            try {
+                document.execCommand("copy");
+            } catch(error) {
+                console.log(error);
+                console.log('Oops, unable to copy');
+            }
+            apiIpt.type = "password";
+        }
+
+        viewBtn.addEventListener("click", showAPIforThreeSec);
+        copyBtn.addEventListener("click", copyAPIKeytoClipboard);
