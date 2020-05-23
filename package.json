@@ -9,6 +9,7 @@
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.2",
     "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -50,7 +51,7 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "yarn build:server && yarn build:assets && yarn copyAll",
     "prebuild": "rm -rf build",
-    "start": "PRODUCTION=true node build/init.js",
+    "start": "cross-env PRODUCTION=true node build/init.js",
     "prestart": "yarn build"
   }
 }

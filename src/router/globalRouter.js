@@ -107,10 +107,11 @@ globalRouter.post(routes.signup, async (req, res) => {
 // Create Test Admin User
 globalRouter.post("/create_test", (req, res) => {
   Person.create({
-    name: "John Doe",
+    name: "Heesang Whang",
     position: "admin",
-    contact: "johndoe@admin.com",
+    contact: "hwhang0917@gmail.com",
     username: "admin",
+    employee: false,
     admin: true,
     apiKey: "test1234",
   });
