@@ -93,6 +93,6 @@ In order to run the project:
 
 ## TODO LIST (05/22/2020~)
 
-- [ ] Add copy API key feature
+- [x] Add copy API key feature
 - [ ] Add admin page to control all entities
 - [ ] Fix Babel regeneratorRuntime error when running build script
