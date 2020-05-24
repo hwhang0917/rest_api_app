@@ -95,4 +95,4 @@ In order to run the project:
 
 - [x] Add copy API key feature
 - [ ] Add admin page to control all entities
-- [ ] Fix Babel regeneratorRuntime error when running build script
+- [x] Fix Babel regeneratorRuntime error when running build script

@@ -104,22 +104,24 @@ globalRouter.post(routes.signup, async (req, res) => {
   res.redirect("api");
 });
 
-// Create Test Admin User
-globalRouter.post("/create_test", async (req, res) => {
-  const {
-    body: { password },
-  } = req;
-  const initAdmin = await Person({
-    name: "Heesang Whang",
-    position: "admin",
-    contact: "hwhang0917@gmail.com",
-    username: "admin",
-    employee: false,
-    admin: true,
-    apiKey: "test1234",
-  });
-  await Person.register(initAdmin, password);
-  res.send("success");
-});
+// Create Test Admin User (ONLY FOR DEVELOPMENT)
+!process.env.PRODUCTION
+  ? globalRouter.post("/create_test", async (req, res) => {
+      const {
+        body: { password },
+      } = req;
+      const initAdmin = await Person({
+        name: "Heesang Whang",
+        position: "admin",
+        contact: "hwhang0917@gmail.com",
+        username: "admin",
+        employee: false,
+        admin: true,
+        apiKey: "test1234",
+      });
+      await Person.register(initAdmin, password);
+      res.send("success");
+    })
+  : null;
 
 export default globalRouter;
