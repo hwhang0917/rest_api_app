@@ -4,9 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 mongoose.connect(
-  process.env.PRODUCTION
-    ? process.env.MONGODB_URI
-    : process.env.MONGO_LOCAL_URI,
+  process.env.PRODUCTION ? process.env.MONGODB_URI : process.env.MONGODB_URI,
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
