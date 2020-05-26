@@ -52,7 +52,6 @@
     "build": "yarn build:server && yarn build:assets && yarn copyAll",
     "prebuild": "rm -rf build",
     "start": "cross-env PRODUCTION=true node build/init.js",
-    "start:forever": "cross-env PRODUCTION=true forever build/init.js",
     "prestart": "yarn build"
   }
 }
