@@ -22,6 +22,10 @@ In order to run the project:
    yarn dev:server
    ```
 
+## [EC2 Deployment](http://ec2-3-34-130-80.ap-northeast-2.compute.amazonaws.com:4000/)
+
+- Note: This project is still under construction, some features might not work properly.
+
 ## References
 
 - [REST API Tutorial](https://www.restapitutorial.com/)
