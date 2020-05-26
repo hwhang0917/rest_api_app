@@ -108,3 +108,4 @@ dist
 
 # Ignore build folder
 build
+static
