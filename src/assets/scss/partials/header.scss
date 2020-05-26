@@ -1,7 +1,16 @@
 .header {
   padding: 30px 5px;
-
+  font-size: 40px;
   .header__title {
-    font-size: 40px;
+    a {
+      font-size: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #2980b9;
+      h3 {
+        margin-left: 15px;
+      }
+    }
   }
 }

@@ -1,0 +1,22 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .form-title {
+    font-size: 38px;
+  }
+  form {
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    input {
+      font-size: 20px;
+      margin: 15px 0px;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+}

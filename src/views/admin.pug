@@ -2,4 +2,27 @@ extends layouts/main
 
 block content
     main.main
-        h1 Admin Page
+        h1.main-title Admin Page
+        .link-container
+            a(href="/admin?category=person").admin-link#selected Person
+            a(href="/admin?category=project").admin-link Project
+            a(href="/admin?category=client").admin-link Client
+            a(href="/admin?category=report").admin-link Report
+        .info-container
+            ul.info-list
+                if people
+                    each person in people
+                        li.list__item
+                            span.name #{person.name}
+                else if clients
+                    each client in clients
+                        li.list__item
+                            span.name #{client.name}
+                else if projects
+                    each project in projects
+                        li.list__item
+                            span.name #{project.title}
+                else if reports
+                    each report in reports
+                        li.list__item
+                            span.name #{report.title}

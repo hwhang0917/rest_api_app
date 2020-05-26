@@ -2,8 +2,8 @@ extends layouts/main
 
 block content
     main.main
-        h1 로그인
         .form-container
+            h1.form-title 로그인
             form(action=routes.login, method="POST")
                 input(type="text", name="username", placeholder="아이디", required)
                 input(type="password", name="password", placeholder="비밀번호", required)

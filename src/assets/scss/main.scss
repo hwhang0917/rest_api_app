@@ -23,4 +23,7 @@ a {
   &:visited {
     color: inherit;
   }
+  &:hover {
+    opacity: 0.8;
+  }
 }

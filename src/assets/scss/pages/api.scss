@@ -1,0 +1,26 @@
+.main {
+  .welcome-box {
+    #welcome-msg {
+      font-size: 35px;
+    }
+    #admin-link {
+      text-decoration: underline;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .api-box {
+    margin: 50px;
+    background-color: #bdc3c7;
+    border-radius: 15px;
+    padding: 30px;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    #api-key {
+      margin-top: 10px;
+      width: 80%;
+    }
+  }
+}

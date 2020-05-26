@@ -1,8 +1,5 @@
 header.header
     h1.header__title
-        if loggedUser
-            a(href=routes.api) 
-                i.fas.fa-home
-        else
-            a(href=routes.root) 
-                i.fas.fa-home
+        a(href=routes.root) 
+            i.fas.fa-home
+            h3 RESTful API - Business Application

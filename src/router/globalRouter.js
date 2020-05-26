@@ -20,10 +20,6 @@ globalRouter.get(routes.api, onlyPrivate, (req, res) => {
   res.render("api", { apiKey });
 });
 
-globalRouter.get(routes.admin, onlyAdmin, (req, res) => {
-  res.render("admin");
-});
-
 // Login
 globalRouter.get(routes.login, onlyPublic, (req, res) => {
   res.render("login");

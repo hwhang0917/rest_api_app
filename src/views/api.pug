@@ -2,9 +2,12 @@ extends layouts/main
 
 block content
     main.main
-        h1#welcome-msg  #{loggedUser.name}님 환영합니다!
-        if loggedUser.admin
-            a(href=routes.admin) 어드민 페이지
+        .welcome-box
+            h1#welcome-msg  #{loggedUser.name}님 환영합니다!
+            if loggedUser.admin
+                a(href=routes.admin)#admin-link 
+                    i.fas.fa-users-cog
+                    span 어드민 페이지
         .api-box
             h3 나의 API 키
             input(type="password", value=apiKey, readonly)#api-key

@@ -12,7 +12,8 @@ import passport from "passport";
 import routes from "./routes";
 import globalRouter from "./router/globalRouter";
 import apiRouter from "./router/apiRouter";
-import { localsMiddleware } from "./middleware";
+import adminRouter from "./router/adminRouter";
+import { localsMiddleware, onlyAdmin } from "./middleware";
 import "./passport";
 
 const app = express();
@@ -46,5 +47,6 @@ app.use(localsMiddleware);
 
 app.use(routes.root, globalRouter);
 app.use(routes.api, apiRouter);
+app.use(routes.admin, onlyAdmin, adminRouter);
 
 export default app;
