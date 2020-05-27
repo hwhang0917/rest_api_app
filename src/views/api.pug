@@ -15,4 +15,9 @@ block content
                 i.far.fa-eye
             button#copy-api-button
                 i.far.fa-copy
-        a(href=routes.logout) 로그아웃
+        a(href=routes.documentation).documentation-link
+            i.fas.fa-file
+            span API 목록
+        a(href=routes.logout).logout-btn
+            i.fas.fa-sign-out-alt
+            span 로그아웃

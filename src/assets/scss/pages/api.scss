@@ -23,4 +23,17 @@
       width: 80%;
     }
   }
+  .documentation-link {
+    font-size: 25px;
+    margin: 30px 0px;
+    i {
+      margin-right: 5px;
+    }
+  }
+  .logout-btn {
+    &:hover {
+      opacity: 0.8;
+      color: red;
+    }
+  }
 }

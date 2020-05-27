@@ -7,6 +7,7 @@ const SIGNUP = "/signup";
 
 // API
 const API = "/api";
+const DOCUMENTATION = "/documentation";
 
 // READ
 const DETAIL = "/:id";
@@ -27,6 +28,7 @@ const routes = {
   root: ROOT,
   admin: ADMIN,
   api: API,
+  documentation: DOCUMENTATION,
   login: LOGIN,
   logout: LOGOUT,
   signup: SIGNUP,

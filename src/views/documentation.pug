@@ -1,0 +1,293 @@
+extends layouts/main
+
+block content
+    .description-box
+        p *주의: 모든 API 콜은 api_key Query를 필요로합니다.
+        p *예제: /api/person/list?api_key=examplekey
+    table#api-table
+        thead
+            tr
+                th METHOD
+                th ADDRESS
+                th PARAMS
+                th BODY
+                th QUERY
+                th ACTION
+        tbody
+            tr
+                td
+                    strong GET
+                td /api/person/list
+                td
+                td
+                td
+                td Shows list of all Person entities
+            tr
+                td
+                td /api/employee/list
+                td
+                td
+                td
+                td Shows list of all Employee entities
+            tr
+                td
+                td /api/expert/list
+                td
+                td
+                td
+                td Shows list of all Expert entities
+            tr
+                td
+                td /api/project/list
+                td
+                td
+                td
+                td Shows list of all Project entities
+            tr
+                td
+                td /api/project/list?client_id=:id
+                td
+                td
+                td client_id
+                td Shows list of all Project requested by Client_id
+            tr
+                td
+                td /api/client/list
+                td
+                td
+                td
+                td Shows list of all Client entities
+            tr
+                td
+                td /api/report/list
+                td
+                td
+                td
+                td Shows list of all Report entities
+            tr
+                td
+                td /api/report/list?project_id=:id
+                td
+                td
+                td project_id
+                td Shows list of all Report under Project_id
+            tr
+                td
+                td /api/person/:id
+                td id: person_id
+                td
+                td
+                td Shows detail of Person entity (This goes for Employee and Expert)
+            tr
+                td
+                td /api/project/:id
+                td id: project_id
+                td
+                td
+                td Shows detail of Project entity
+            tr
+                td
+                td /api/client/:id
+                td id: client_id
+                td
+                td
+                td Shows detail of Client entity
+            tr
+                td
+                td /api/report/:id
+                td id: report_id
+                td
+                td
+                td Shows detail of Report entity
+            tr
+                td
+                    strong POST
+                td /api/person
+                td
+                td name, position, contact, username (optional)
+                td
+                td Create Person entity
+            tr
+                td
+                td -
+                td
+                td w/ expertese
+                td
+                td Create Expert entity
+            tr
+                td
+                td -
+                td
+                td w/ employee (bool)
+                td
+                td Create Employee entity
+            tr
+                td
+                td /api/project/create/:id
+                td id: requestedClient
+                td title, budget
+                td
+                td Create Project entity requested by cleint_id
+            tr
+                td
+                td /api/project/:id/add_contributor?contributor_id=:id
+                td id: project_id
+                td
+                td contributor_id
+                td Add contributor to project
+            tr
+                td
+                td /api/client
+                td
+                td name, contact
+                td
+                td Create Client entity
+            tr
+                td
+                td /api/report/create/:id
+                td id:project_id
+                td title, type, documentLink
+                td
+                td Create Report entity under project_id
+            tr
+                td
+                td /api/report/:id/add_contributor?contributor_id=:id
+                td id: report_id
+                td
+                td contributor_id
+                td Add contributor to report
+            tr
+                td
+                    strong PUT
+                td /api/person/:id/name
+                td id: person_id
+                td name
+                td
+                td Update name of Person
+            tr
+                td
+                td /api/person/:id/position
+                td id: person_id
+                td position
+                td
+                td Update position of Person
+            tr
+                td
+                td /api/person/:id/contact
+                td id: person_id
+                td contact
+                td
+                td Update contact of Person
+            tr
+                td
+                td /api/person/:id/username
+                td id: person_id
+                td username
+                td
+                td Update username of Person
+            tr
+                td
+                td /api/person/:id/admin
+                td id: person_id
+                td
+                td
+                td Toggle admin boolean of Person (Only admin can access this call)
+            tr
+                td
+                td /api/project/:id/title
+                td id: project_id
+                td title
+                td
+                td Update title of Project
+            tr
+                td
+                td /api/project/:id/budget
+                td id: project_id
+                td budget
+                td
+                td Update budget of Project
+            tr
+                td
+                td /api/project/:id/finish
+                td id: project_id
+                td
+                td
+                td Finish the project (adds finish date as Date.now
+            tr
+                td
+                td /api/client/:id/name
+                td id: client_id
+                td name
+                td
+                td Update name of Client
+            tr
+                td
+                td /api/client/:id/contact
+                td id: client_id
+                td contact
+                td
+                td Update contact of Client
+            tr
+                td
+                td /api/report/:id/title
+                td id: report_id
+                td title
+                td
+                td Update title of Report
+            tr
+                td
+                td /api/report/:id/type
+                td id: report_id
+                td type
+                td
+                td Update type of Report
+            tr
+                td
+                td /api/report/:id/document_link
+                td id: report_id
+                td documentLink
+                td
+                td Update document link of Report
+            tr
+                td
+                    strong DELETE
+                td /api/person/:id
+                td id: person_id
+                td
+                td
+                td Deletes Person entity
+            tr
+                td
+                td /api/project/:id
+                td id: project_id
+                td
+                td
+                td Deletes Project entity
+            tr
+                td
+                td /api/project/:id/remove_contributor
+                td id: project_id
+                td
+                td contributor_id
+                td Deletes contributor from Project
+            tr
+                td
+                td /api/client/:id
+                td id: client_id
+                td
+                td
+                td Deletes Client entity
+            tr
+                td
+                td /api/report/:id
+                td id: report_id
+                td
+                td
+                td Deletes Report entity
+            tr
+                td
+                td /api/report/:id/remove_contributor
+                td id: report_id
+                td
+                td contributor_id
+                td Deletes contributor from Report
