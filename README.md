@@ -4,19 +4,31 @@
 
 This is a project practicing of creating RESTful API application.
 
+## Instruction
+
 In order to run the project:
 
 1. Install [Yarn](https://yarnpkg.com/)
+
 2. Clone project
+
 3. Create .env file in the root directory [Sample dotenv](./.envsample)
+
    - This project runs on [MongoDB](https://www.mongodb.com/)
+
 4. Install dependencies:
 
    ```
    yarn install
    ```
 
-5. Run server:
+5. Build assets (SCSS / client JS):
+
+   ```
+   yarn dev:assets
+   ```
+
+6. Run server:
 
    ```
    yarn dev:server
