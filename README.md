@@ -34,7 +34,7 @@ In order to run the project:
    yarn dev:server
    ```
 
-## [EC2 Deployment](http://hswhang-restapp.net:4000/)
+## [EC2 Deployment](http://hswhang-restapp.net/)
 
 - Note: This project is still under construction, some features might not work properly.
 
