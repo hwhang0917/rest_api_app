@@ -19,6 +19,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.0.1",
+    "pm2": "^4.4.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {
@@ -51,7 +52,7 @@
     "copyAll": "cp -R src/static build && cp -R src/views build",
     "build": "yarn build:server && yarn build:assets && yarn copyAll",
     "prebuild": "rm -rf build",
-    "start": "cross-env PRODUCTION=true node build/init.js",
+    "start": "cross-env PRODUCTION=true pm2 start build/init.js",
     "prestart": "yarn build"
   }
 }
