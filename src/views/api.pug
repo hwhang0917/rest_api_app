@@ -1,23 +1,23 @@
 extends layouts/main
 
 block content
-    main.main
-        .welcome-box
-            h1#welcome-msg  #{loggedUser.name}님 환영합니다!
-            if loggedUser.admin
-                a(href=routes.admin)#admin-link 
-                    i.fas.fa-users-cog
-                    span 어드민 페이지
-        .api-box
-            h3 나의 API 키
-            input(type="password", value=apiKey, readonly)#api-key
-            button#view-api-button
-                i.far.fa-eye
-            button#copy-api-button
-                i.far.fa-copy
-        a(href=routes.documentation).documentation-link
-            i.fas.fa-file
-            span API 목록
-        a(href=routes.logout).logout-btn
-            i.fas.fa-sign-out-alt
-            span 로그아웃
+  main.main
+    .welcome-box
+      h1#welcome-msg  #{loggedUser.name}님 환영합니다!
+      if loggedUser.admin
+        a#admin-link(href=routes.admin) 
+          i.fas.fa-users-cog
+          span 어드민 페이지
+    .api-box
+      h3 나의 API 키
+      input#api-key(type="password", value=apiKey, readonly)
+      button#view-api-button
+        i.far.fa-eye
+      button#copy-api-button
+        i.far.fa-copy
+    a.documentation-link(href=routes.documentation)
+      i.fas.fa-file
+      span API 목록
+    a.logout-btn(href=routes.logout)
+      i.fas.fa-sign-out-alt
+      span 로그아웃

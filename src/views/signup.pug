@@ -1,17 +1,27 @@
 extends layouts/main
 
 block content
-    main.main
-        .form-container
-            h1.form-title 등록
-            form(action=routes.signup, method="POST")
-                input(type="text", name="name", placeholder="이름", required)
-                input(type="text", name="position", placeholder="직책")
-                input(type="email", name="contact", placeholder="이메일")
-                input(type="text", name="username", placeholder="아이디", required)
-                input(type="password", name="password", id="password", placeholder="비밀번호", required)
-                input(type="password", name="password2", id="confirm_password", placeholder="비밀번호 확인", required)
-                input(type="text", name="apiKey", placeholder="관리자 API 키", required)
-                input(type="checkbox", name="employee", id="employee_checkbox")
-                label(for="employee_checkbox") 직원
-                button(type="submit") 가입
+  main.main
+    .form-container
+      h1.form-title 등록
+      form(action=routes.signup, method="POST")
+        input(type="text", name="name", placeholder="이름", required)
+        input(type="text", name="position", placeholder="직책")
+        input(type="email", name="contact", placeholder="이메일")
+        input(type="text", name="username", placeholder="아이디", required)
+        input#password(
+          type="password",
+          name="password",
+          placeholder="비밀번호",
+          required
+        )
+        input#confirm_password(
+          type="password",
+          name="password2",
+          placeholder="비밀번호 확인",
+          required
+        )
+        input(type="text", name="apiKey", placeholder="관리자 API 키", required)
+        input#employee_checkbox(type="checkbox", name="employee")
+        label(for="employee_checkbox") 직원
+        button(type="submit") 가입

@@ -1,5 +1,8 @@
 # REST API Application
 
+[![Author](https://img.shields.io/badge/author-hwhang0917-green?style=flat)](https://github.com/hwhang0917/rest_app_api)
+[![License](https://img.shields.io/github/license/hwhang0917/rest_app_api)](https://github.com/hwhang0917/rest_app_api/blob/master/LICENSE)
+
 ## Overview
 
 This is a project practicing of creating RESTful API application.
