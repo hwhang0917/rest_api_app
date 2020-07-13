@@ -1,5 +1,9 @@
 # REST API Application
 
+```
+THIS REPOSITORY AND PROJECT IS CURRENTLY DEPRECATED AND NO LONGER UPDATED
+```
+
 [![Author](https://img.shields.io/badge/author-hwhang0917-green?style=flat)](https://github.com/hwhang0917/rest_app_api)
 [![License](https://img.shields.io/github/license/hwhang0917/rest_app_api)](https://github.com/hwhang0917/rest_app_api/blob/master/LICENSE)
 
@@ -37,7 +41,7 @@ In order to run the project:
    yarn dev:server
    ```
 
-## [EC2 Deployment](http://hswhang-restapp.net/)
+## ~~[EC2 Deployment](http://hswhang-restapp.net/)~~
 
 - Note: This project is still under construction, some features might not work properly.
 
